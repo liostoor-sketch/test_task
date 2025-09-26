@@ -35,7 +35,7 @@ export class ChatPage extends BasePage {
         this.chatContainer = page.locator("[data-testid='chat-container']");
         this.chatHeader = this.chatContainer.locator("[data-sentry-component='ChatHeader']");
 
-        this.chatMessageSection = this.chatContainer.locator("[data-testid='virtuoso-scroller']");
+        this.chatMessageSection = this.chatContainer.locator("[data-testid='virtuoso-item-list']").last(); //one element is hidden, so we need to use .last()
         this.chatMessageFromClient = this.chatMessageSection.locator("[data-testid='message-client-text']");
         this.chatMessageFromExpert = this.chatMessageSection.locator("[data-testid='message-expert-text']");
 
@@ -44,6 +44,6 @@ export class ChatPage extends BasePage {
         this.chatMessageSendButton = this.chatContainer.locator("button:text-is('Send')");
 
         this.chatQuickMessageContainer = this.chatContainer.locator("[data-testid='chat-quick-message-container']");
-        this.chatQuickMessageItem = (quickMessageText) => this.chatQuickMessageContainer.locator(`button:text-is('${quickMessageText}')`);
+        this.chatQuickMessageItem = (quickMessageText) => this.chatQuickMessageContainer.locator(`button p:text-is('${quickMessageText}')`);
     }
 }

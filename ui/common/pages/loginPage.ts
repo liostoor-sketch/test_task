@@ -12,8 +12,8 @@ export class LoginPage extends BasePage {
         super(page);
         this.page = page;
 
-        this.loginEmailField = page.locator("[data-testid='login-email-input']");
-        this.loginPasswordField = page.locator("[data-testid='login-password-input']");
+        this.loginEmailField = page.locator("[data-testid='login-email-input'] input");
+        this.loginPasswordField = page.locator("[data-testid='login-password-input'] input");
         this.loginSubmitButton = page.locator("[data-testid='login-submit-button']");
     }
 }

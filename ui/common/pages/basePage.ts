@@ -28,10 +28,14 @@ export abstract class BasePage {
         this.headerNotificationButton = this.headerSection.locator("[data-testid='notification-center']");
 
         this.headerSettingDropdown = this.headerSection.locator("[data-testid='app-bar-open-popover']");
-        this.headerSettingButton = this.headerSection.locator("[data-testid='app-bar-settings-button']");
+        this.headerSettingButton = page.locator("[data-testid='app-bar-settings-button']");
         this.headerLogoutButton = this.headerSection.locator("[data-testid='app-bar-logout-button']");
 
         this.headerHamburgerMenuButton = this.headerSection.locator("[data-sentry-element='AppBarIconButton']");
-        this.headerHamburgerMenuChatButton = this.headerSection.locator("[data-testid='drawer-navigation-list-item-link-chat']");
+        this.headerHamburgerMenuChatButton = page.locator("[data-testid='drawer-navigation-list-item-link-chat']");
+    }
+
+    async goto(url: string) {
+        await this.page.goto(url);
     }
 }
